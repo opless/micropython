@@ -44,16 +44,16 @@ void uart_rx_irq(void) {
         return;
     }
     int c = uBit.serial.getc();
-    if (c == interrupt_char) {
-        MP_STATE_VM(mp_pending_exception) = MP_STATE_PORT(keyboard_interrupt_obj);
-    } else {
+//    if (c == interrupt_char) {
+//        MP_STATE_VM(mp_pending_exception) = MP_STATE_PORT(keyboard_interrupt_obj);
+//    } else {
         uint16_t next_head = (uart_rx_buf_head + 1) % UART_RX_BUF_SIZE;
         if (next_head != uart_rx_buf_tail) {
             // only store data if room in buf
             uart_rx_buf[uart_rx_buf_head] = c;
             uart_rx_buf_head = next_head;
         }
-    }
+//    }
 }
 
 void mp_hal_init(void) {
