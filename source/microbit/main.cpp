@@ -3,7 +3,8 @@
 #include "microbit/memory.h"
 #include "microbit/filesystem.h"
 #include "microbit/microbitdal.h"
-#include "_newlib_version.h"
+//#include "_newlib_version.h"
+#include "newlib.h"
 
 // Global instances of the DAL components that we use
 MicroBitDisplay ubit_display;

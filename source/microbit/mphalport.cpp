@@ -48,9 +48,10 @@ void uart_rx_irq(void) {
         return;
     }
     int c = ubit_serial.getc();
+/*
     if (c == mp_interrupt_char) {
         mp_keyboard_interrupt();
-    } else {
+    } else */ {
         uint16_t next_head = (uart_rx_buf_head + 1) % UART_RX_BUF_SIZE;
         if (next_head != uart_rx_buf_tail) {
             // only store data if room in buf
